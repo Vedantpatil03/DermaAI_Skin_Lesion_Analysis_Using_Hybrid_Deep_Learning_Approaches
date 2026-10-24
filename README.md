@@ -3,56 +3,186 @@
 AI-assisted skin lesion analysis application with a React/Vite frontend and
 FastAPI backend.
 
-## Deployment
+## ⚙️ Installation and Setup
+
+### Prerequisites
+
+Install the following before running the project:
+
+- Python 3.10 or a compatible version required by your dependencies
+- Node.js and npm
+- MongoDB Atlas account or another configured MongoDB instance
+- Git and Git LFS
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Vedantpatil03/DermaAI_Skin_Lesion_Analysis_Using_Hybrid_Deep_Learning_Approaches.git
+```
+
+Navigate into the project directory:
+
+```bash
+cd DermaAI_Skin_Lesion_Analysis_Using_Hybrid_Deep_Learning_Approaches
+```
+
+### 2. Set Up the Backend
+
+Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+Create a Python virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```powershell
+venv\Scripts\activate
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure Environment Variables
+
+Create a local `.env` file inside the `backend` directory and add the
+environment variables required by the application.
+
+Example:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET_KEY=your_secret_key
+```
+
+Use the exact variable names expected by the backend. For deployment, set
+these values in the hosting provider's environment variable settings.
+
+**Important:** Never upload real database credentials, JWT secrets, API keys,
+or other sensitive information to GitHub.
+
+### 4. Start the Backend Server
+
+From the repository root, run:
+
+```bash
+uvicorn --app-dir backend app.main:app --reload
+```
+
+The backend should start at:
+
+[http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+To explore the API documentation, open:
+
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+### 5. Set Up the Frontend
+
+Open a new terminal and navigate to the frontend directory:
+
+```bash
+cd frontend
+```
+
+Install the frontend dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in the terminal, commonly:
+
+[http://localhost:5173](http://localhost:5173)
+
+For local development, the frontend defaults to
+`http://127.0.0.1:8000`. To use another backend URL, create
+`frontend/.env.local` with:
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```
+
+---
+
+## 🚀 Deployment
 
 ### Backend on Render
 
-Create a Render Web Service from this repository. The included
-[`render.yaml`](./render.yaml) uses the repository root, installs
-`backend/requirements.txt`, and starts FastAPI with Uvicorn.
+The repository includes [`render.yaml`](./render.yaml) for deploying the
+FastAPI backend. Configure these Render environment variables:
 
-Set these environment variables in Render:
-
-- `MONGODB_URI`: MongoDB Atlas connection string. Add the Render outbound
-  network access to the Atlas IP access list as required by your Atlas setup.
-- `JWT_SECRET_KEY`: a long random secret. Render generates this when using the
-  Blueprint configuration.
-- `CORS_ORIGINS`: the deployed Vercel URL, for example
-  `https://your-app.vercel.app` (comma-separated if more origins are needed).
+- `MONGODB_URI`: MongoDB Atlas connection string
+- `JWT_SECRET_KEY`: a long random secret
+- `CORS_ORIGINS`: the deployed Vercel URL, such as
+  `https://your-app.vercel.app`
 
 ### Frontend on Vercel
 
 Import the repository into Vercel and set the project root directory to
-`frontend`. Vercel will use the Vite build defaults. Set:
+`frontend`. Configure:
 
-- `VITE_API_BASE_URL`: the deployed Render URL, for example
-  `https://dermaai-api.onrender.com`
+- `VITE_API_BASE_URL`: the deployed Render backend URL, such as
+  `https://your-api.onrender.com`
 
-The included [`frontend/vercel.json`](./frontend/vercel.json) keeps client-side
-routes working on refresh.
+The included [`frontend/vercel.json`](./frontend/vercel.json) supports
+client-side route refreshes.
 
-## Local development
+The trained model files use Git LFS. Install Git LFS before cloning or pulling
+the repository so the model files are downloaded correctly.
 
-Run the backend from the repository root:
+---
 
-```powershell
-pip install -r backend/requirements.txt
-uvicorn --app-dir backend app.main:app --reload
-```
+## 🔐 Security
 
-Run the frontend:
+- Keep `.env` files out of version control.
+- Never publish database credentials or authentication secrets.
+- Use environment variables for sensitive configuration.
+- Validate uploaded files before processing.
+- Restrict access to user-specific data.
+- Use HTTPS when deploying the application.
 
-```powershell
-cd frontend
-npm install
-npm run dev
-```
+---
 
-For local frontend development, `VITE_API_BASE_URL` defaults to
-`http://127.0.0.1:8000`.
+## 🎯 Project Objectives
 
-## Large model files
+- Develop a web-based image analysis application using deep learning.
+- Apply image segmentation to identify relevant regions in skin lesion images.
+- Integrate a hybrid deep learning classification pipeline.
+- Build a user-friendly interface for uploading images and viewing results.
+- Provide authentication and backend API functionality.
+- Explore the integration of AI-based image analysis into a web application.
 
-The trained `.pth` files are tracked with Git LFS through
-[`.gitattributes`](./.gitattributes). Install and initialize Git LFS before
-the first push.
+---
+
+## 🔮 Future Scope
+
+- Improve model performance using additional validated datasets.
+- Evaluate classification performance using appropriate metrics.
+- Enhance the visualization of segmentation results.
+- Improve application performance and model inference speed.
+- Deploy the application using suitable cloud infrastructure.
+- Expand testing and usability evaluation.
+
+---
+
+## ⚠️ Medical Disclaimer
+
+DermaAI is an academic and research project intended for educational and
+experimental purposes only. It is not a substitute for professional medical
+advice, diagnosis, or treatment.
