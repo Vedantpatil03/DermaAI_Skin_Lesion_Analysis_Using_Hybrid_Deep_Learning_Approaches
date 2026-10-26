@@ -246,31 +246,7 @@ function Results({
                     </section>
 
 
-                    {/* ========================================
-                        ANALYSIS STATUS
-                    ======================================== */}
-
-                    <section className="analysis-status-card">
-
-                        <div className="status-indicator">
-                            <span></span>
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Analysis Completed
-                            </strong>
-
-                            <p>
-                                The uploaded image was processed
-                                successfully by the available
-                                AI analysis pipeline.
-                            </p>
-
-                        </div>
-
-                    </section>
+                   
 
 
                     {/* ========================================

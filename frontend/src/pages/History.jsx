@@ -47,7 +47,7 @@ function History({
                         <div className="history-header-content">
                             <div>
                                 <p className="section-label">
-                                    ANALYSIS HISTORY
+                                    HISTORY
                                 </p>
 
                                 <h1>
