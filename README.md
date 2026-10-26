@@ -1,7 +1,60 @@
-# DermaAI
+# DermaAI - Skin Lesion Image Analysis Using Hybrid Deep Learning Approaches
 
-AI-assisted skin lesion analysis application with a React/Vite frontend and
-FastAPI backend.
+DermaAI is a web-based skin lesion image analysis project developed using hybrid deep learning approaches. The system analyzes uploaded skin lesion images using image segmentation and classification techniques to generate analysis results through a user-friendly web interface.
+
+The project integrates deep learning models with a web application to provide an organized workflow for image analysis, result visualization, and user authentication.
+
+## 🚀 Features
+
+- **Image Upload:** Upload skin lesion images for analysis.
+- **Image Validation:** Validate uploaded images before processing.
+- **Image Segmentation:** Use a U-Net-based model to identify the lesion region.
+- **Deep Learning Classification:** Analyze images using a hybrid deep learning approach.
+- **Result Visualization:** Display analysis results through a web interface.
+- **User Authentication:** Support user registration and login.
+- **Analysis History:** Provide backend functionality to retrieve a user's saved analysis records.
+- **Interactive Dashboard:** Access the application's features through a React-based interface.
+- **REST API:** Process frontend requests through a FastAPI backend.
+
+## 🛠️ Technology Stack
+
+### Frontend
+- React.js
+- Vite
+- JavaScript
+- HTML5
+- CSS3
+
+### Backend
+- Python
+- FastAPI
+- REST API
+- Uvicorn
+
+### Deep Learning and Image Processing
+- U-Net-based image segmentation
+- Hybrid deep learning classification
+- Image preprocessing and validation
+
+### Database and Authentication
+- MongoDB Atlas
+- JWT-based authentication
+
+## 🏗️ System Architecture
+
+The application follows a frontend-backend architecture.
+
+1. **User Interface:** Users interact with the application through the React frontend.
+2. **Image Upload:** The user uploads a skin lesion image.
+3. **Image Validation:** The backend validates the uploaded image.
+4. **Image Segmentation:** The segmentation model identifies the relevant lesion region.
+5. **Image Classification:** The classification pipeline analyzes the image.
+6. **Result Generation:** The backend returns the analysis results to the frontend.
+7. **Result Display:** The frontend presents the results to the user.
+8. **User Management:** The backend provides authentication functionality.
+9. **Analysis History:** The backend includes endpoints for retrieving saved analysis records.
+
+
 
 ## ⚙️ Installation and Setup
 
